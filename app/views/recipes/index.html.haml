@@ -1,0 +1,6 @@
+%h1 This is the placeholder for the Recipes#index
+
+- @recipe.each do |recipe|
+    %h2= link_to recipe.title, recipe
+= link_to 'New Recipe', new_recipe_path, class: 'btn btn-primary'
+= link_to 'Recipes', recipes_path, class: 'btn btn-primary'
