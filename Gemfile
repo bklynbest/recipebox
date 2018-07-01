@@ -8,7 +8,7 @@ gem 'haml', '~> 5.0', '>= 5.0.4'
 gem 'uglifier', '>= 1.3.0'
 gem 'simple_form', '~> 4.0', '>= 4.0.1'
 gem 'coffee-rails', '~> 4.1.0'
-# See https://github.com/rails/execjs#readme for more supported runtimes
+gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 # gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
@@ -17,7 +17,10 @@ gem 'jquery-rails'
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
-# bundle exec rake doc:rails generates the API under doc/api.
+gem 'dotenv-rails', '~> 2.5'
+gem 'carrierwave-aws', '~> 1.3'
+gem 'carrierwave', '~> 1.2', '>= 1.2.3'
+gem 'mini_magick', '~> 4.8'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 group :development, :test do
