@@ -1,5 +1,7 @@
 class Recipe < ApplicationRecord
 
+  belongs_to :user
+
   mount_uploader :image, ImageUploader
   has_many :ingredients
   has_many :directions
@@ -12,6 +14,6 @@ class Recipe < ApplicationRecord
 
 
   		validates :title, :description, :image, presence: true
-  		validates_acceptance_of :image
+  		#validates_acceptance_of :image
 
 end

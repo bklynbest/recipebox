@@ -1,5 +1,7 @@
 class RecipesController < ApplicationController
     before_action :find_recipe, only: [:show, :edit, :update, :destroy]
+    before_action :authenticate_user!, except: [:index, :show]
+
 
     def index
         @recipe = Recipe.all.order("created_at DESC")
@@ -9,16 +11,20 @@ class RecipesController < ApplicationController
     end
 
     def new
-        @recipe = Recipe.new
+		@recipe = current_user.recipes.build
     end
 
     def create
-        @recipe = Recipe.new(recipe_params)
+        @recipe = current_user.recipes.build(recipe_params)
 
-        if @recipe.save
-            redirect_to @recipe, notice: "Successfully created new recipe"
-        else
-            render 'new'
+        respond_to do |format|
+            if @recipe.save
+                format.html { redirect_to @recipe, notice: 'Recipe was successfully created.' }
+                format.json { render :show, status: :created, location: @recipe }
+            else
+                format.html { render :new }
+                format.json { render json: @recipe.errors, status: :unprocessable_entity }
+            end
         end
     end
 
@@ -27,7 +33,8 @@ class RecipesController < ApplicationController
 
     def update
         if @recipe.update(recipe_params)
-            redirect_to @recipe
+            redirect_to @recipe,
+             notice: flash.now[:alert] = 'Updated Recipe!'
         else
             render 'edit'
         end
