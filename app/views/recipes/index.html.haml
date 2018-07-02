@@ -1,6 +1,12 @@
-%h1 This is the placeholder for the Recipes#index
-
-- @recipe.each do |recipe|
-    %h2= link_to recipe.title, recipe
+- @recipe.each_slice(3) do |recipes|
+    .row
+        -recipes.each do |recipe|
+            .col-md-4
+                .recipe
+                    .image_wrapper
+                        = link_to recipe do
+                            = image_tag recipe.image, width:'300px', height:'300px', class:'recipe_image'
+                    %h2= link_to recipe.title, recipe
 = link_to 'New Recipe', new_recipe_path, class: 'btn btn-primary'
-= link_to 'Recipes', recipes_path, class: 'btn btn-primary'
+= link_to 'Back to Top', recipes_path, class: 'btn btn-primary'
+
