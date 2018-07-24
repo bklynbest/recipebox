@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
+ruby '2.3.4'
 
 
 gem 'rails', '~> 5.0.0.beta1'
-gem 'sqlite3'
 gem 'sass-rails', '~> 5.0'
 gem 'haml', '~> 5.0', '>= 5.0.4'
 gem 'uglifier', '>= 1.3.0'
@@ -10,7 +10,6 @@ gem 'simple_form', '~> 4.0', '>= 4.0.1'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 gem 'cocoon', '~> 1.2', '>= 1.2.11'
-
 gem 'devise', '~> 4.4', '>= 4.4.3'
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
@@ -23,8 +22,13 @@ gem 'carrierwave', '~> 1.2', '>= 1.2.3'
 gem 'mini_magick', '~> 4.8'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+
+group :production do
+  gem "pg", "~> 0.20"
+end
 group :development, :test do
   gem 'byebug'
+  gem 'sqlite3'
 end
 
 group :development do
