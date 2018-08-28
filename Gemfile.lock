@@ -230,7 +230,7 @@ DEPENDENCIES
   jquery-rails
   mini_magick (~> 4.8)
   pg (~> 0.20)
-  rails (~> 5.0.0.beta1)
+  rails
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   simple_form (~> 4.0, >= 4.0.1)
